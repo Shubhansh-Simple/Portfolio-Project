@@ -1,0 +1,22 @@
+{% extends 'base_template.html' %}    
+
+<!-- Title -->
+{% block title %}
+  500 :(
+{% endblock %}
+
+{% block profile %}
+{% endblock profile %}
+
+{% block body %}
+  {% load staticfiles %}
+  <div class="text-center">
+    <img class="rounded-circle" src="{% static '500_page_image.jpg' %}" alt="Error" width="240" height="240"> 
+    <h1>Server Error</h1>
+    <p>Requested url <b>not found</b> in our site</p>
+  </div>
+
+{% endblock body %}
+
+
+

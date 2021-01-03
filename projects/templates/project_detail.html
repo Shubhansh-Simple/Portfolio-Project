@@ -1,0 +1,94 @@
+{% extends 'base_template.html' %}
+
+{% block title %}
+  {{ project_detail.title|title }}
+{% endblock %}
+
+{% block profile %}
+  <br>
+{% endblock %}
+
+{% block body %}
+  <div class="text-center">
+
+    <div class='jumbotron bg-dark'>
+      <h2 class="text-white"> {{ project_detail.title|title }}.</h2>
+       <p class="text-secondary">{{ project_detail.description|capfirst }}</p>
+    </div>
+
+    <div class='container'>
+      <ul class="list-group mb-3">
+        
+        <!--Isometric view-->
+        <li class=" d-flex justify-content-between lh-condensed">
+          <div>
+            <h4>
+              <span class="text-muted">First Image</span>
+            </h4>
+            <img class="img-fluid" src="{{ project_detail.isometric_image.url }}" >
+          </div>
+        </li>
+        </br></br>
+
+        <!--Front view-->
+        <li class=" d-flex justify-content-between lh-condensed">
+          <div>
+            <h4>
+              <span class="text-muted">Second Image</span>
+            </h4>
+            <img class="img-fluid" src="{{ project_detail.front_image.url }}" >
+          </div>
+        </li>
+        </br></br>
+
+        <!--Side view-->
+        <li class=" d-flex justify-content-between lh-condensed">
+          <div>
+            <h4>
+              <span class="text-muted">Third Image</span>
+            </h4>
+            <img class="img-fluid" src="{{ project_detail.side_image.url }}" >
+          </div>
+        </li>
+        </br></br>
+
+        {% if project_detail.top_image.url%}
+          <!--Top view-->
+          <li class=" d-flex justify-content-between lh-condensed">
+            <div>
+              <h4>
+                <span class="text-muted">Fourth Image</span>
+              </h4>
+              <img class="img-fluid" src="{{ project_detail.top_image.url }}" >
+            </div>
+          </li>
+          </br></br>
+        {% endif %}
+        
+        {% if project_detail.bottom_image.url%}
+          <!--Bottom view-->
+          <li class=" d-flex justify-content-between lh-condensed">
+            <div>
+              <h4>
+                <span class="text-muted">Fifth Image</span>
+              </h4>
+              <img class="img-fluid" src="{{ project_detail.bottom_image.url }}" >
+            </div>
+          </li>
+          </br>
+        {% endif %}
+
+        <li class=" d-flex justify-content-between text-center">
+          <a class='btn btn-success' href='{{ project_detail.project_file.url }}' download>
+            <strong class='text-white'>Download</strong>
+          </a>
+          <a class='btn btn-primary' href='#'>
+            <strong class='text-white'>Back To Top</strong>
+          </a>
+        </li>
+        </br>
+      </ul>
+    </div>
+  </div> 
+{% endblock body %}
+

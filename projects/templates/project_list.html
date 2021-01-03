@@ -1,0 +1,32 @@
+{% extends 'base_template.html' %}
+
+{% block body %}
+
+  <div class="row">
+    {% if project_lists %}
+
+      {% for project_list in project_lists %}
+        <div class="col-lg-4">
+          <img class="rounded-circle" src="{{ project_list.top_image.url }}" alt="Project Image" width="240" height="240"> 
+          <h2>{{ project_list.title|title }} </h2>
+          <p>
+            {{ project_list.description| title | truncatechars:50 }}
+          </p>
+          <p>
+            <a class="btn btn-secondary" href="{% url 'project_detail' project_list.id %}" role="button">View details &raquo;</a>
+          </p>
+        </div><!-- /.col-lg-4 -->
+      {% endfor %}
+
+    {% else%}
+      <h1>No Data Found!</h1>
+    {% endif %}
+  </div><!-- /.row -->
+
+{% endblock body %}
+
+
+
+
+
+

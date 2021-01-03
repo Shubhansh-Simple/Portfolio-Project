@@ -1,0 +1,55 @@
+{% extends 'base_template.html' %}
+
+{% block title %}
+  Profile Page     
+{% endblock %}
+
+{% block profile %}
+	<div class='text-center'>
+      <br>
+   	  <img class='rounded-circle' src='{{ unique_user.profile_pic.url }}' alt='Profile Picture'
+        width=160 , height=160>
+      <p>
+        <h2 class='text-dark font-italic '>{{ unique_user.first_name }} {{ unique_user.last_name }}</h2>
+        <small class="text-dark font-weight-bold ">({{ unique_user.education|title }})</small>
+      </p>
+
+      <h4 class="">
+        <span class="text-dark font-weight-bold">Total Projects - </span>
+        <span class="badge badge-secondary badge-pill">{{ total_projects }}</span>
+      </h4>
+      <hr>
+
+      <div>
+        <small class="text-dark font-weight-bold"><u>Age</u></small>
+      </div>
+      <span class="text-muted ">{{ unique_user.age }}</span>
+
+      <div>
+        <small class="text-dark font-weight-bold"><u>Email</u></small>
+      </div>
+      <span class="text-muted ">{{ unique_user.email }}</span>
+
+      <div>
+        <small class="text-dark font-weight-bold"><u>Birth</u></small>
+      </div>
+      <span class="text-muted ">{{ unique_user.birth_date }}</span>
+      
+      <div>
+        <small class="text-dark font-weight-bold"><u>About</u></small>
+      </div>
+      <span class="text-muted w-25 p-3">{{ unique_user.about_me }}</span>
+
+
+
+    </div> 
+
+{% endblock profile %}
+
+{% block body%}
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+{% endblock %}
+
