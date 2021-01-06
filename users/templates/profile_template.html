@@ -7,11 +7,11 @@
 {% endblock %}
 
 {% block home_url %}
-  /projects/{{ unique_user.username }}
+  {% url 'project_list' user_url %}
 {% endblock home_url %}
 
 {% block about_me_link %} 
-  /profile/{{unique_user.username}}
+  {% url 'profile_detail' user_url %}
 {% endblock about_me_link %}
 
 {% block profile %}
