@@ -1,17 +1,43 @@
 {% extends 'base_template.html' %}
 
+{% load staticfiles %}
+
 {% block title %}
   Profile Page     
 {% endblock %}
 
+{% block home_url %}
+  /projects/{{ unique_user.username }}
+{% endblock home_url %}
+
 {% block profile %}
 	<div class='text-center'>
       <br>
-   	  <img class='rounded-circle' src='{{ unique_user.profile_pic.url }}' alt='Profile Picture'
-        width=160 , height=160>
+      {% if unique_user.profile_pic %}
+   	    <img class='rounded-circle' src='{{ unique_user.profile_pic.url }}' alt='Profile Picture' width=160 , height=160>
+      {% else %}
+   	    <img class='rounded-circle' src="{% static 'default_profile.jpg' %}" alt='Profile Picture' width=160 , height=160>
+      {% endif %}
       <p>
-        <h2 class='text-dark font-italic '>{{ unique_user.first_name }} {{ unique_user.last_name }}</h2>
-        <small class="text-dark font-weight-bold ">({{ unique_user.education|title }})</small>
+        {% if unique_user.first_name and unique_user.last_name %}
+          <h2 class='text-dark font-italic '>{{ unique_user.first_name }} {{ unique_user.last_name }}</h2>
+        {% else %}
+          <span class="text-muted ">
+            First Name
+          </span>
+          <span class="text-muted ">
+            Last Name
+          </span>
+        {% endif %}
+        
+        <br>
+        {% if unique_user.education %}
+          <small class="text-dark font-weight-bold ">({{ unique_user.education|title }})</small>
+        {% else %}
+          <span class="text-muted ">
+            Education  
+          </span>
+        {% endif %}
       </p>
 
       <h4 class="">
@@ -19,28 +45,45 @@
         <span class="badge badge-secondary badge-pill">{{ total_projects }}</span>
       </h4>
       <hr>
-
-      <div>
-        <small class="text-dark font-weight-bold"><u>Age</u></small>
-      </div>
-      <span class="text-muted ">{{ unique_user.age }}</span>
+      
+        <div>
+          <small class="text-dark font-weight-bold"><u>Age</u></small>
+        </div>
+      {% if unique_user.age %}
+        <span class="text-muted ">{{ unique_user.age }}</span>
+      {% else %}
+        <span class="text-muted ">__________</span>
+      {% endif %}
 
       <div>
         <small class="text-dark font-weight-bold"><u>Email</u></small>
       </div>
       <span class="text-muted ">{{ unique_user.email }}</span>
 
-      <div>
-        <small class="text-dark font-weight-bold"><u>Birth</u></small>
-      </div>
-      <span class="text-muted ">{{ unique_user.birth_date }}</span>
-      
-      <div>
-        <small class="text-dark font-weight-bold"><u>About</u></small>
-      </div>
-      <span class="text-muted w-25 p-3">{{ unique_user.about_me }}</span>
+        <div>
+          <small class="text-dark font-weight-bold"><u>Birth</u></small>
+        </div>
+      {% if unique_user.birth_date %}
+        <span class="text-muted ">{{ unique_user.birth_date }}</span>
+      {% else %}
+        <span class="text-muted ">__________</span>
+      {% endif %}
 
+        <div>
+          <small class="text-dark font-weight-bold"><u>About</u></small>
+        </div>
+      {% if unique_user.about_me %}
+        <span class="text-muted w-25 p-3">{{ unique_user.about_me }}</span>
+      {% else %}
+        <span class="text-muted ">__________</span>
+      {% endif %}
 
+      {% if not unique_user.about_me and unique_user.age and unique_user.profile_pic and unique_user.first_name and unique_user.last_name and unique_user.education and unique_user.birth_date %}
+        </br>
+      {% else %}
+        </br>
+        <span class=" text-danger">Kindly Complete Your Profile</span>
+      {% endif %}
 
     </div> 
 

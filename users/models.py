@@ -3,6 +3,9 @@ from django.db import models
 
 
 class CustomUser( AbstractUser ):
+    class Meta:
+        db_table = 'users_customuser'
+
     profile_pic = models.ImageField( upload_to='profile_pic/', null=True, blank=True, help_text='Upload your profile picture' )
     education   = models.CharField( max_length=50,null=True,blank=True )
     age         = models.PositiveSmallIntegerField( null=True,blank=True )

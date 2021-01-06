@@ -9,6 +9,15 @@
 {% endblock %}
 
 {% block body %}
+
+{% block home_url %}
+  /projects/{{ user_url }}
+{% endblock home_url %}
+
+{% block about_me_link %}
+  /profile/{{ user_url }}
+{% endblock about_me_link %}
+
   <div class="text-center">
 
     <div class='jumbotron bg-dark'>

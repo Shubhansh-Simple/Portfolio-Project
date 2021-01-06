@@ -2,18 +2,34 @@
 
 {% block body %}
 
+{% block home_url %}
+  /projects/{{ user_url }}
+{% endblock home_url %}
+
+{% block jumbotron_title %}
+  {{ user_url|title }}
+{% endblock jumbotron_title %}
+
+{% block about_me_link %}
+  /profile/{{user_url}}
+{% endblock about_me_link %}
+
+{% block email_me_link %}
+  {{ user_email}}
+{% endblock email_me_link %}
+
   <div class="row">
     {% if project_lists %}
 
       {% for project_list in project_lists %}
         <div class="col-lg-4">
-          <img class="rounded-circle" src="{{ project_list.top_image.url }}" alt="Project Image" width="240" height="240"> 
+          <img class="rounded-circle" src="{{ project_list.isometric_image.url }}" alt="Project Image" width="240" height="240"> 
           <h2>{{ project_list.title|title }} </h2>
           <p>
             {{ project_list.description| title | truncatechars:50 }}
           </p>
           <p>
-            <a class="btn btn-secondary" href="{% url 'project_detail' project_list.id %}" role="button">View details &raquo;</a>
+            <a class="btn btn-secondary" href="{% url 'project_detail' user_url project_list.id %}" role="button">View details &raquo;</a>
           </p>
         </div><!-- /.col-lg-4 -->
       {% endfor %}

@@ -10,8 +10,8 @@
 
   <title>
     {% block title %}
-      Shubham's Blog
-    {% endblock %}
+      Shubham
+    {% endblock %}'s Blog
   </title>
 
   <!-- Bootstrap core CSS -->
@@ -40,13 +40,16 @@
 
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="{% url 'project_list' %}">Home</a>
+      <a class="navbar-brand" href="{% block home_url %}HOME{% endblock home_url %}">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link active" href="{% url 'profile_detail' %}">About Me</a>
+          <a class="nav-item nav-link active" 
+            href="{% block about_me_link %} ABOUT {% endblock about_me_link %}" > 
+            About Me
+          </a>
         </div>
       </div>
     </nav>
@@ -57,11 +60,17 @@
     <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">
-            <b>Hi,I'm Shubham.</b>
+            <b>
+              Hi,I'm 
+              {% block jumbotron_title %}
+                Title right here
+              {% endblock jumbotron_title %}.
+            </b>
           </h1>
           <p class="lead text-muted">Welcome to my official website,where you can find all of my mechanical projects in one place.</p>
           <p>
-            <a href="mailto:shubhansh7777@gmail.com" class="btn btn-primary my-2">Email Me</a>
+             
+            <a href="mailto:{% block email_me_link %} {% endblock email_me_link %}" class="btn btn-primary my-2">Email Me</a>
           </p>
         </div>
     </section>

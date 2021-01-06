@@ -5,18 +5,20 @@ from django.conf          import settings
 
 class ProfileView( DetailView ):
     model               = CustomUser
-    queryset            = CustomUser.objects.get( id=2 )
     template_name       = 'profile_template.html'
     context_object_name = 'unique_user'
 
 
-    def get_object( self ):
-        '''For multiple user we modify this method.'''
+    def get_object( self,queryset=None ):
+        '''Extract user from database from url username.'''
 
-        return CustomUser.objects.get( id=2 )
+        user_name = self.kwargs['username'].lower()
+        return CustomUser.objects.get( username=user_name )
 
 
     def get_context_data( self,**kwargs ):
+        '''How many projects done by this user.'''
+
         context                   = super( ProfileView,self ).get_context_data( **kwargs )
         context['total_projects'] = Projects.objects.all().count()
         return context
