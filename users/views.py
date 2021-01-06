@@ -24,6 +24,7 @@ class ProfileView( DetailView ):
         '''How many projects done by this user.'''
 
         context                   = super( ProfileView,self ).get_context_data( **kwargs )
+        context['user_url']       = self.kwargs['username']
         context['total_projects'] = Projects.objects.filter( creator=self.CREATOR.id ).count()
         return context
 
