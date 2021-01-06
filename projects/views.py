@@ -1,4 +1,4 @@
-from django.shortcuts     import get_list_or_404,get_object_or_404
+from django.shortcuts     import get_object_or_404
 from django.http          import Http404
 from django.contrib.auth  import get_user_model
 from django.views.generic import ListView , DetailView
@@ -21,7 +21,7 @@ class ProjectListView( ListView ):
         self.USER_EMAIL = obj.email                 
 
         if obj:
-            return get_list_or_404( Projects,creator=obj.id )
+            return Projects.objects.filter( creator=obj.id )
         raise Http404('User not exist')
 
     def get_context_data( self,**kwargs ):
