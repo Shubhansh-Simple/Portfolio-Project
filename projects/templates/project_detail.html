@@ -4,12 +4,6 @@
   {{ project_detail.title|title }}
 {% endblock %}
 
-{% block profile %}
-  <br>
-{% endblock %}
-
-{% block body %}
-
 {% block home_url %}
   /projects/{{ user_url }}
 {% endblock home_url %}
@@ -18,6 +12,14 @@
   /profile/{{ user_url }}
 {% endblock about_me_link %}
 
+
+{% block profile %}
+  <br>
+{% endblock %}
+
+{% block body_block %}
+
+  <!--Show title,description,3 or 5 images then download link.-->
   <div class="text-center">
 
     <div class='jumbotron bg-dark'>
@@ -99,5 +101,5 @@
       </ul>
     </div>
   </div> 
-{% endblock body %}
+{% endblock body_block %}
 

@@ -1,6 +1,9 @@
 {% extends 'base_template.html' %}
 
-{% block body %}
+{% block title %}
+  {{user_url|title}}
+{% endblock %}
+
 
 {% block home_url %}
   /projects/{{ user_url }}
@@ -14,13 +17,20 @@
   /profile/{{user_url}}
 {% endblock about_me_link %}
 
-{% block email_me_link %}
-  {{ user_email}}
-{% endblock email_me_link %}
+<!-- Setting the email button -->
+{% block email_button %}
+  {% if user_email %}
+    <a href="mailto:{{ user_email }}" class="btn btn-primary my-2">Email Me</a>
+  {% else %}
+    <a href="mailto:" class="btn btn-danger my-2">Kindly Add Email.</a>
+  {% endif %}
+{% endblock email_button %}
 
+{% block body_block %}
   <div class="row">
     {% if project_lists %}
 
+      <!--List View-->
       {% for project_list in project_lists %}
         <div class="col-lg-4">
           <img class="rounded-circle" src="{{ project_list.isometric_image.url }}" alt="Project Image" width="240" height="240"> 
@@ -34,12 +44,13 @@
         </div><!-- /.col-lg-4 -->
       {% endfor %}
 
+    <!-- For New User.-->
     {% else%}
       <h1>No Data Found!</h1>
     {% endif %}
   </div><!-- /.row -->
 
-{% endblock body %}
+{% endblock body_block %}
 
 
 

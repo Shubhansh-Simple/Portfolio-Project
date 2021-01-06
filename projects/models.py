@@ -4,6 +4,9 @@ from django.conf import  settings
 
 
 class Projects( models.Model ):
+    class Meta:
+        verbose_name        = 'My-Project'
+        verbose_name_plural = 'My-Projects'
 
     creator         = models.ForeignKey( settings.AUTH_USER_MODEL,on_delete=models.CASCADE )
     title           = models.CharField( max_length=100 ,help_text='Title of the projects')

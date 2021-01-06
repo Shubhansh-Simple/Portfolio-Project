@@ -69,16 +69,16 @@
           </h1>
           <p class="lead text-muted">Welcome to my official website,where you can find all of my mechanical projects in one place.</p>
           <p>
-             
-            <a href="mailto:{% block email_me_link %} {% endblock email_me_link %}" class="btn btn-primary my-2">Email Me</a>
+            {% block email_button %}
+            {% endblock email_button %}
           </p>
         </div>
     </section>
     {% endblock %}
 
     <div class="container marketing">
-      {% block body %}
-      {% endblock body %}
+      {% block body_block %}
+      {% endblock body_block %}
     </div>
 
   </main>

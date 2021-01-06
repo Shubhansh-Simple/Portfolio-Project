@@ -14,22 +14,28 @@ class ProjectListView( ListView ):
 
     def get_queryset(self):
 
-        requested_user  = self.kwargs['username'].lower()
+        requested_user  = self.kwargs['username'] 
         obj             = get_object_or_404( get_user_model(),username=requested_user )
-        self.USER_EMAIL = obj.email
+        
+        # class variable
+        self.USER_EMAIL = obj.email                 
 
         if obj:
             return get_list_or_404( Projects,creator=obj.id )
         raise Http404('User not exist')
 
     def get_context_data( self,**kwargs ):
+        '''Sending current username from url to template.'''
+
         context               = super( ProjectListView,self ).get_context_data( **kwargs )
-        context['user_url']   = self.kwargs['username'].lower()
+        context['user_url']   = self.kwargs['username']
         context['user_email'] = self.USER_EMAIL
         return context
 
 
 class ProjectDetailView( DetailView ):
+    '''Detail of projects based on id and username both from url.'''
+
     model               = Projects
     template_name       = 'project_detail.html'
     context_object_name = 'project_detail'
@@ -46,8 +52,10 @@ class ProjectDetailView( DetailView ):
 
 
     def get_context_data( self,**kwargs ):
+        '''Sending current username from url to template.'''
+
         context               = super( ProjectDetailView,self ).get_context_data( **kwargs )
-        context['user_url']   = self.kwargs['username'].lower()
+        context['user_url']   = self.kwargs['username']
         return context
 
 
