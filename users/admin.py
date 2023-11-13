@@ -27,11 +27,11 @@ class CustomUserAdmin( UserAdmin ):
     NON_SUPER_USER_FIELD = ( 'Personal Info',   { 'fields' : ('first_name','last_name','email',),  }),
 
     # CustomUserModel Fields
-    ADDITIONAL_FIELD     = ( 'Additional Info', {'fields' :  ( 'profile_pic','age','education','about_me', ), }),
+    ADDITIONAL_FIELD     = ( 'Additional Info', {'fields' :  ( 'profile_pic','education','about_me','birth_date','phone','address','github_link', 'linkedin_link', 'resume_file' ), }),
     
 
     def get_queryset( self,request ):
-      '''Staff user can see his own data only'''
+      '''Staff user can see his own projects and account only'''
 
       query = super( CustomUserAdmin,self ).get_queryset( request )
         

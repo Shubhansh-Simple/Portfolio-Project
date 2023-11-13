@@ -2,109 +2,199 @@
 
 {% load staticfiles %}
 
+<!------------Title Of Page----------->
 {% block title %}
-  Profile Page     
+  Profile
 {% endblock %}
 
+<!------------HomePage Link----------->
 {% block home_url %}
-  {% url 'project_list' user_url %}
+  {% if user_url %}
+    {% url 'project_list' user_url %}
+  {% else %}
+    {% url 'mine_project_list' %}
+  {% endif %}
 {% endblock home_url %}
 
+<!------------About Me Page Link----------->
 {% block about_me_link %} 
-  {% url 'profile_detail' user_url %}
+  {% if user_url %}
+    {% url 'profile_detail' user_url %}
+  {% else %}
+    {% url 'mine_profile_detail' %}
+  {% endif %}
 {% endblock about_me_link %}
 
 {% block profile %}
-	<div class='text-center'>
+
+
+  <div class="bg-light">
+    <div class="container">
+
+      <p class="text-center display-4 font-weight-bold text-muted">About</p>
+
+      <!----------PROFILE UPPER SECTION STARTS------------>
+      <div class="container">
+        <div class="row">
+
+          <!------------Profile Picture----------->
+          <div class="col-md-6">
+            {% if unique_user.profile_pic %}
+              <img src="{{ unique_user.profile_pic.url }}" alt="Your Profile Pic" class="img-fluid rounded-circle" width=350 height=350>
+            {% else %}
+   	          <img class='rounded-circle' src="{% static 'default_profile.jpg' %}" alt='Default Profile Pic' width=350 , height=350>
+            {% endif %}
+          </div>
+
+          <div class="col-md-6">
+
+            <!------------ FULL NAME------------>
+            <br>
+            {% if unique_user.first_name and unique_user.last_name %}
+              <h1 class="display-4">{{ unique_user.first_name }}<br>{{ unique_user.last_name }}</h1>
+            {% else %}
+              <h1 class="display-4">First Name<br>Last Name</h1>
+            {% endif %}
+
+            <!------------ PROFESSION------------>
+            {% if unique_user.education %}
+              <h5 class="text-danger"><b>{{ unique_user.education }}</b></h5>
+            {% else %}
+              <h5 class="text-danger"><b>EDUCATION</b></h5><br>
+            {% endif %}
+
+            <br>
+            <br>
+
+            <!------------ ABOUT ME------------>
+            {% if unique_user.about_me %}
+              <h6 class="text-muted">{{ unique_user.about_me }}</h6>
+            {% else %}
+              <h6 class="text-muted">ABOUT ME</h6>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+      <!--PROFILE UPPER SECTION ENDS-->
+
       <br>
+      <br>
+      <!--------- GENERAL INFO. SECTION------- -->
+      <div class="table-responsive bg-light">
+        <table class="table">
 
-      <!--FORM FIELD-->
-      {% if unique_user.profile_pic %}
-   	    <img class='rounded-circle' src='{{ unique_user.profile_pic.url }}' alt='Profile Picture' width=160 , height=160>
-      {% else %}
-   	    <img class='rounded-circle' src="{% static 'default_profile.jpg' %}" alt='Profile Picture' width=160 , height=160>
-      {% endif %}
-      
-      <!--FORM FIELD-->
-      <p>
-        {% if unique_user.first_name and unique_user.last_name %}
-          <h2 class='text-dark font-italic '>{{ unique_user.first_name }} {{ unique_user.last_name }}</h2>
+          <!---------TABLE HEADING--------->
+          <thead>
+            <tr>
+              <td colspan=2>
+                <h2>General Info</h2>
+              </td>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!------------BIRTHDAY------------>
+            <tr>
+              <th>Birth Date</th>
+              <td>{{ unique_user.birth_date }}</td>
+            </tr>
+
+            <!------------Email ID------------>
+            <tr>
+              <th>Email</th>
+              <td>{{ unique_user.email }}</td>
+            </tr>
+
+            <!------------Mobile Number------------>
+            <tr>
+              <th>Phone</th>
+              <td>+91 {{ unique_user.phone }}</td>
+            </tr>
+
+            <!------------Address------------>
+            <tr>
+              <th>Address</th>
+              <td>{{ unique_user.address }}</td>
+            </tr>
+
+            <!------------Github Link------------>
+            {% if unique_user.github_link %}
+              <tr>
+                <th>Github</th>
+                <td>
+                  <a href={{ unique_user.github_link }}>@shubhansh-simple</a>
+                </td>
+              </tr>
+            {% endif %}
+
+            <!------------LinkedIn Link------------>
+            {% if unique_user.linkedin_link %}
+              <tr>
+                <th>LinkedIn</th>
+                <td>
+                  <a href={{ unique_user.linkedin_link }}>@shubhanshu-chourasia</a>
+                </td>
+              </tr>
+            {% endif %}
+
+            <!------------Blank Row------------>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div> <!-- General Info. Table responsive div-->
+
+
+      <!------------RESUME BUTTON SECTION------------>
+      <br>
+      <div class='text-center container'>
+        <ul class="list-group mb-3">
+          <li class="d-flex justify-content-between text-center">
+
+            <!------------CHECK PROJECT BUTTON------------>
+            {% if user_url %}
+              <a class='btn btn-primary btn-lg' href='{% url 'project_list' user_url %}'>
+                Back To Home
+              </a>
+            {% else %}
+              <a class='btn btn-primary btn-lg' href='{% url 'mine_project_list' %}'>
+                Back To Home
+              </a>
+            {% endif %}
+
+
+            <!------------RESUME BUTTON------------>
+            {% if unique_user.resume_file %}
+              <a class='btn btn-danger btn-lg' href='{{ unique_user.resume_file.url }}' download>
+                Download CV
+              </a>
+            {% else %}
+              <button type="button" class="btn btn-danger btn-lg disabled">Download CV</button>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+          
+
+
+      <!------------IS PROFILE COMPLETE------------>
+      <div class="text-center">
+
+        <!--CHECK ONLY IMP FIELDS-->
+        {% if unique_user.about_me and unique_user.profile_pic and unique_user.first_name and unique_user.last_name and unique_user.education and unique_user.birth_date and unique_user.phone %}
+          </br>
         {% else %}
-          <span class="text-muted ">
-            First Name
-          </span>
-          <span class="text-muted ">
-            Last Name
-          </span>
+          </br>
+          <span class="text-danger">Kindly Complete Your Profile</span>
         {% endif %}
-      </p>
-      
-      <!--FORM FIELD-->
-      <p>
-        {% if unique_user.education %}
-          <small class="text-dark font-weight-bold ">({{ unique_user.education|title }})</small>
-        {% else %}
-          <span class="text-muted ">
-            Education  
-          </span>
-        {% endif %}
-      </p>
-
-      <h4 class="">
-        <span class="text-dark font-weight-bold">Total Projects - </span>
-        <span class="badge badge-secondary badge-pill">{{ total_projects }}</span>
-      </h4>
-      <hr>
-      
-      <!--FORM FIELD-->
-      <div>
-        <small class="text-dark font-weight-bold"><u>Age</u></small>
       </div>
-      {% if unique_user.age %}
-        <span class="text-muted ">{{ unique_user.age }}</span>
-      {% else %}
-        <span class="text-muted ">__________</span>
-      {% endif %}
 
-      <!--FORM FIELD-->
-      <div>
-        <small class="text-dark font-weight-bold"><u>Email</u></small>
-      </div>
-      {% if unique_user.age %}
-        <span class="text-muted ">{{ unique_user.email }}</span>
-      {% else %}
-        <span class="text-muted ">__________</span>
-      {% endif %}
-
-      <!--FORM FIELD-->
-      <div>
-        <small class="text-dark font-weight-bold"><u>Birth</u></small>
-      </div>
-      {% if unique_user.birth_date %}
-        <span class="text-muted ">{{ unique_user.birth_date }}</span>
-      {% else %}
-        <span class="text-muted ">__________</span>
-      {% endif %}
-
-      <!--FORM FIELD-->
-      <div>
-        <small class="text-dark font-weight-bold"><u>About</u></small>
-      </div>
-      {% if unique_user.about_me %}
-        <span class="text-muted w-25 p-3">{{ unique_user.about_me }}</span>
-      {% else %}
-        <span class="text-muted ">__________</span>
-      {% endif %}
-
-      <!--CHECK ALL FIELDS-->
-      {% if not unique_user.about_me and unique_user.age and unique_user.profile_pic and unique_user.first_name and unique_user.last_name and unique_user.education and unique_user.birth_date %}
-        </br>
-      {% else %}
-        </br>
-        <span class="text-danger">Kindly Complete Your Profile</span>
-      {% endif %}
-
-    </div> 
+      </div> <!--div class="bg-light"-->
+  </div> <!--div class="container"-->
 
 {% endblock profile %}
 
@@ -112,6 +202,9 @@
   <br/>
   <br/>
   <br/>
+{% endblock %}
+
+{% block our_client %}
   <br/>
 {% endblock %}
 
