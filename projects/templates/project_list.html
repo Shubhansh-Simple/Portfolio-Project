@@ -1,56 +1,195 @@
 {% extends 'base_template.html' %}
 
+{% load staticfiles %}
+
+<!------------Title Of Page----------->
 {% block title %}
-  {{user_url|title}}
+  {% if user_url %}
+    {{ user_url|title }}
+  {% else %}
+    Shubhanshu
+  {% endif %}
 {% endblock %}
 
 
+<!------------HomePage Link----------->
 {% block home_url %}
-  {% url 'project_list' user_url %}
+  {% if user_url %}
+    {% url 'project_list' user_url %}
+  {% else %}
+    {% url 'mine_project_list' %}
+  {% endif %}
 {% endblock home_url %}
 
-{% block jumbotron_title %}
-  {{ user_url|title }}
-{% endblock jumbotron_title %}
 
+<!------------About Me Page Link----------->
 {% block about_me_link %}
-  {% url 'profile_detail' user_url %}
+  {% if user_url %}
+    {% url 'profile_detail' user_url %}
+  {% else %}
+    {% url 'mine_profile_detail' %}
+  {% endif %}
 {% endblock about_me_link %}
 
-<!-- Setting the email button -->
+
+<!------------ HI, I'M USERNAME ------------>
+{% block jumbotron_title %}
+  {% if user_url %}
+    {{ user_url|title }}
+  {% else %}
+    Shubhanshu
+  {% endif %}
+{% endblock jumbotron_title %}
+
+
+<!------------ EMAIL BUTTON ------------>
 {% block email_button %}
   {% if user_email %}
-    <a href="mailto:{{ user_email }}" class="btn btn-primary my-2">Email Me</a>
+    <a href="mailto:{{ user_email }}" class="btn btn-danger my-2">Email Me</a>
   {% else %}
-    <a href="mailto:" class="btn btn-danger my-2">Kindly Add Email.</a>
+    <a href="#" class="btn btn-danger my-2 disabled">No Email Found</a>
   {% endif %}
 {% endblock email_button %}
 
+
+<!------------PROJECT DISPLAY SECTION------------>
 {% block body_block %}
   <div class="row">
+
+    <!------------PROJECT FOUND------------>
     {% if project_lists %}
 
-      <!--List View-->
+      <!------------ITERATE PROJECT FROM DATABASE------------>
       {% for project_list in project_lists %}
+
+        <!------------EACH PROJECT DISPLAY------------>
         <div class="col-lg-4">
-          <img class="rounded-circle" src="{{ project_list.isometric_image.url }}" alt="Project Image" width="240" height="240"> 
-          <h2>{{ project_list.title|title }} </h2>
+          <img class="rounded-circle" src="{{ project_list.isometric_image.url }}" 
+               alt="Project Image" width="240" height="240"> 
+          <h2>{{ project_list.title | title }} </h2>
           <p>
-            {{ project_list.description| title | truncatechars:50 }}
+            {{ project_list.description | title | truncatechars:50 }}
           </p>
           <p>
-            <a class="btn btn-secondary" href="{% url 'project_detail' user_url project_list.id %}" role="button">View details &raquo;</a>
+            <!------------SPECIAL USER OR NORMAL USER------------>
+            {% if user_url %}
+              <a class="btn btn-dark" 
+                 href="{% url 'project_detail' user_url project_list.id %}" 
+                 role="button">View Details &raquo;</a>
+            {% else %}
+              <a class="btn btn-secondary" 
+                 href="{% url 'mine_project_detail' project_list.id %}" 
+                 role="button">View Details &raquo;</a>
+            {% endif %}
           </p>
-        </div><!-- /.col-lg-4 -->
+        </div>
       {% endfor %}
 
-    <!-- For New User.-->
+    <!------------ NO PROJECT IN DATABASE ------------>
     {% else%}
-      <h1>No Data Found!</h1>
+      <br>
+      <br>
+      <h1 class="text-center display-1">No Project Found!</h1>
+      <br>
+      <br>
     {% endif %}
-  </div><!-- /.row -->
 
+  </div>
 {% endblock body_block %}
+
+
+<!------------ PEOPLE USING MY SITE SECTION------------>
+{% block our_client %}
+
+  <!-- What people are saying section specially for me-->
+  {% if not user_url %}
+
+    <div class="container-fluid bg-light">
+      <div class="container py-5 marketing">
+
+        <h1 class="text-secondary font-weight-bold text-center mb-5">What people are saying…</h1>
+        <br>
+
+         
+        <!--List View-->
+        <div class="row text-center">
+          
+          <!------------Image First------------>
+          <div class="col-lg-4">
+
+            <!--Portfolio Users-->
+            <img class="rounded-circle" src="{% static 'user-2.jpg' %}" alt="Client Image" width="160" height="160">
+            <h1>{% static 'user-2.jpg' %}</h1>
+            <br>
+            <br>
+
+            <!------------Profession------------>
+            <h6 class="text-dark font-weight-bold">Mechanical Engineer</h6>
+
+            <!------------Opinion------------>
+            <figure class="text-end">
+              <blockquote class="blockquote">
+                <h4 class="text-secondary text-secondary mt-3 mb-0">
+                  "I will refer everyone I know. This portfolio is worth much more than I paid. I'm loving it."
+                </h4>
+              </blockquote>
+
+              <!------------Full Name------------>
+              <figcaption class="blockquote-footer">
+                <b class="text-danger">Arpit Singh Rajpoot</b>
+              </figcaption>
+            </figure>
+
+            <br>
+            <!------------CHECK PORTFOLIO BUTTON------------>
+            <p>
+              <a class="btn btn-outline-dark" target="_blank" href="/projects/arpit/">Checkout Their Portfolio</a>
+            </p>
+          </div><!-- FIRST USER SECTION END -->
+
+          <!---------------------------------------------------------> 
+          
+          <!------------Image Two------------>
+          <div class="col-lg-4">
+
+            <!--Portfolio Users-->
+            <img class="rounded-circle" src="{% static 'user-3.jpg' %}" alt="Client Image" width="160" height="160">
+            <br>
+            <br>
+
+            <!------------Profession------------>
+            <h6 class="text-dark font-weight-bold">Trainee Design Engineer</h6>
+
+
+            <!------------Opinion------------>
+            <figure class="text-end">
+              <blockquote class="blockquote">
+                <h5 class="text-secondary text-secondary mt-3 mb-0">
+                  "I have been offered the <b>"Trainee Design Engineer"</b> position at <b>"ISRINGHAUSEN GmbH"</b>, and I genuinely believe that your portfolio website was a key factor in this." 
+                </h5>
+              </blockquote>
+
+              <!------------Full Name------------>
+              <figcaption class="blockquote-footer">
+                <b class="text-danger">Shubham Tripathi</b>
+              </figcaption>
+            </figure>
+
+            <br>
+            <!------------CHECK PORTFOLIO BUTTON------------>
+            <p>
+              <a class="btn btn-outline-dark" target="_blank" href="/projects/shubham/">Checkout Their Portfolio</a>
+            </p>
+          </div><!-- SECOND USER SECTION END -->
+
+        </div><!-- /.row -->
+
+      </div>
+    </div>
+    </div>
+  {% endif %}
+{% endblock our_client %}
+
 
 
 
