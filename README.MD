@@ -25,8 +25,9 @@
 
 ## Description
 
-.) Built a web application allowing users to create and share their web portfolio.<br>
-.) Allow users to add projects with detail page having description and downloadable link.<br>
-.) Enabled users to generate portfolios and generate unique sharable link<br>
+<b>.)</b> Built a web application allowing users to create and share their web portfolio.<br>
+<b>.)</b> Allow users to add projects with detail page having description and downloadable link.<br>
+<b>.)</b> Enabled users to generate portfolios and generate unique sharable link<br>
 
 <b>Tools and skills</b> : Python, Django, Pythonanywhere, Bootstrap, Javascript, Mysql, Html, Css
+<a alt="My Portfolio" href="https://shub.pythonanywhere.com/profile">Live Demo</a>
