@@ -30,4 +30,9 @@
 <b>.)</b> Enabled users to generate portfolios and generate unique sharable link<br>
 
 <b>Tools and skills</b> : Python, Django, Pythonanywhere, Bootstrap, Javascript, Mysql, Html, Css
-<a alt="My Portfolio" href="https://shub.pythonanywhere.com/profile">Live Demo</a>
+<br>
+<br>
+# Project Demo
+<a alt="My Portfolio" href="https://shub.pythonanywhere.com/profile">
+  <b>Live Demo</b>
+</a>
