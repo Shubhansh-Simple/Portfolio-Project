@@ -1,5 +1,10 @@
 # Portfolio Web Application
 
+# Project Demo
+<a alt="My Portfolio" href="https://shub.pythonanywhere.com/profile">
+  <b>Live Demo</b>
+</a>
+
 <p align="center">
   <b align="center">Responsive Web Application</b>
 </p>
@@ -32,7 +37,4 @@
 <b>Tools and skills</b> : Python, Django, Pythonanywhere, Bootstrap, Javascript, Mysql, Html, Css
 <br>
 <br>
-# Project Demo
-<a alt="My Portfolio" href="https://shub.pythonanywhere.com/profile">
-  <b>Live Demo</b>
-</a>
+
