@@ -1,11 +1,15 @@
 # Portfolio Web Application
 
-<h1 align="center">Responsive Website</h1>
 <p align="center">
+  <b align="center">Responsive Web Application</b>
   <a href="https://www.vim.org/scripts/script.php?script_id=5779">
-    <img alt="Logo" src="https://shub.pythonanywhere.com/media/images/complete_crop_3_HJHQj6R.png" height="240" />
+    <img alt="Logo" src="https://shub.pythonanywhere.com/media/images/complete_crop_3_HJHQj6R.png" height="240" /> 
   </a>
-  <p align="center">Make your portfolio with unique shareable links</p>
+<b align="center">Your projects as your portfolio</b>
+ <a href="https://www.vim.org/scripts/script.php?script_id=5779">
+    <img alt="Sample" src="https://shub.pythonanywhere.com/media/images/Screenshot_from_2023-11-11_04-45-22.png" height="240" />
+  </a>
+  <p align="center">Make your own portfolio with unique shareable links</p>
   <p align="center">
     <a href="LICENSE.md"><img alt="Software License" src="https://img.shields.io/badge/license-Anti%20996-brightgreen.svg?style=flat-square"></a>
     <a href="https://github.com/neoclide/coc.nvim/actions"><img alt="Actions" src="https://img.shields.io/github/actions/workflow/status/neoclide/coc.nvim/ci.yml?style=flat-square&branch=master"></a>
