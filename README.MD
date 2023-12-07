@@ -16,9 +16,6 @@
 
 ---
 
-<img alt="Custom coc popup menu with snippet support" src="https://github.com/neoclide/coc.nvim/assets/251450/05f60ab8-dcb1-40f7-9e4a-3c03f5db5398" width="60%" />
-
-
 ## Description
 
 Built a web application allowing users to create and share their web portfolio
