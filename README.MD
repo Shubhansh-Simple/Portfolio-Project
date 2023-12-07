@@ -1,4 +1,6 @@
-# Portfolio Web Application
+<div align="center">
+  # Portfolio Web Application
+</div>
 
 # Project Demo
 <a alt="My Portfolio" href="https://shub.pythonanywhere.com/profile">
