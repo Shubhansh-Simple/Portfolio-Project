@@ -5,7 +5,7 @@
   <b>Live Demo</b>
 </a>
 
-### Responsive Web Application
+### Responsive Portfolio Application
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
     <img alt="Responsive" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/ResponsiveView.png" height="600" /> 
@@ -27,7 +27,7 @@
   </a>
 </p>
 
-### Upload page makes easy to upload and maintain
+### Upload page makes easy to upload and maintain your projects
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
     <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/UploadView.png" height="600" /> 
