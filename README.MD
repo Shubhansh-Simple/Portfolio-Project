@@ -8,16 +8,32 @@
 ### Responsive Web Application
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
-    <img alt="Logo" src="https://shub.pythonanywhere.com/media/images/complete_crop_3_HJHQj6R.png" height="600" /> 
+    <img alt="Responsive" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/ResponsiveView.png" height="600" /> 
   </a>
 </p>
 
 ### Your projects as your portfolio
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
-    <img alt="Sample" src="https://shub.pythonanywhere.com/media/images/Screenshot_from_2023-11-11_04-45-22.png" height="600" />
+    <img alt="About" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/AboutView.png" height="600" /> 
   </a>
 </p>
+
+
+### Your projects as your portfolio
+<p align="center">
+  <a href="https://shub.pythonanywhere.com/profile">
+    <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/HomepageView.png" height="600" /> 
+  </a>
+</p>
+
+### Upload page makes easy to upload and maintain
+<p align="center">
+  <a href="https://shub.pythonanywhere.com/profile">
+    <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/UploadView.png" height="600" /> 
+  </a>
+</p>
+
 <p align="center">
     <h4>Make your own portfolio with unique shareable links</h4>
 </p>
