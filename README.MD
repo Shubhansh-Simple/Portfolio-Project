@@ -12,7 +12,7 @@
   </a>
 </p>
 
-### Your projects as your portfolio
+### Profile View
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
     <img alt="About" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/AboutView.png" height="600" /> 
@@ -23,7 +23,7 @@
 ### Your projects as your portfolio
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
-    <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/HomepageView.png" height="600" /> 
+    <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/HomeView.png" height="600" /> 
   </a>
 </p>
 
