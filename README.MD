@@ -5,29 +5,34 @@
   <b>Live Demo</b>
 </a>
 
-### Responsive Portfolio Application
+# Responsive Portfolio Application
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
     <img alt="Responsive" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/ResponsiveView.png" height="600" /> 
   </a>
 </p>
 
-### Profile View
+<hr>
+
+# Profile View
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
     <img alt="About" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/AboutView.png" height="600" /> 
   </a>
 </p>
 
+<hr>
 
-### Your projects as your portfolio
+# Your projects as your portfolio
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
     <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/HomeView.png" height="600" /> 
   </a>
 </p>
 
-### Upload page makes easy to upload and maintain your projects
+<hr>
+
+# Upload page makes easy to upload and maintain your projects
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
     <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/UploadView.png" height="600" /> 
@@ -45,8 +50,9 @@
 <b>.)</b> Built a web application allowing users to create and share their web portfolio.<br>
 <b>.)</b> Allow users to add projects with detail page having description and downloadable link.<br>
 <b>.)</b> Enabled users to generate portfolios and generate unique sharable link<br>
+<br>
+<b>.)</b><i>Tools and skills</i> : <b>Python</b>, <b>Django</b>, <b>Mysql</b>, <b>Pythonanywhere</b>, <b>Bootstrap</b>, <b>Javascript</b>, <b>Html</b>,<b>Css</b>
 
-<b>Tools and skills</b> : Python, Django, Pythonanywhere, Bootstrap, Javascript, Mysql, Html, Css
 <br>
 <br>
 
