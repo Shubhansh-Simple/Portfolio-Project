@@ -3,6 +3,8 @@
 <head>
   {% load staticfiles %}
   <meta charset="utf-8">
+  <!-- Title bar icon -->
+  <link rel="icon" href="{% static 'portfolio-logo.png' %}" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -15,10 +17,9 @@
   </title>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" 
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-        crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+                         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+                         crossorigin="anonymous">
 
   <style>
     .marketing .col-lg-4 {
@@ -35,15 +36,27 @@
       margin-left: .75rem;
     }
 
-    .table>tbody>tr>td,
-    .table>tbody>tr>th {
-      border-top: none;
+    html,body{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
-    
+
+    .tools{
+        padding-left   : 5px;
+        padding-right  : 5px;
+        padding-top    : 1px;
+        padding-bottom : 1px;
+      }
+
     .footer {
             margin-top: auto;
     }
 
+    .table>tbody>tr>td,
+    .table>tbody>tr>th {
+      border-top: none;
+    }
   </style>
 
 </head>
@@ -52,32 +65,27 @@
 
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" 
-          href="{% block home_url %}#{% endblock home_url %}">
-        Home
-      </a>
+      <a class="navbar-brand" href="{% block home_url %}#{% endblock home_url %}">Home</a>
 
-      <button class="navbar-toggler" 
-              type="button" 
-              data-toggle="collapse" 
-              data-target="#navbarNavAltMarkup" 
-              aria-controls="navbarNavAltMarkup" 
-              aria-expanded="false" 
-              aria-label="Toggle navigation">
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link active" 
-            href="{% block about_me_link %}#{% endblock about_me_link %}" > 
-            About Me
+          <a class="nav-item nav-link active"
+            href="{% block about_me_link %}#{% endblock about_me_link %}" >
+            About
           </a>
         </div>
       </div>
     </nav>
   </header>
+
 
   <main role="main">
     {% block profile %}
@@ -85,13 +93,14 @@
         <div class="container">
           <h1 class="jumbotron-heading">
             <b>
-              Hi, I'm 
+              Hi, I'm
               {% block jumbotron_title %}
                 Title right here
-              {% endblock jumbotron_title %}
+              {% endblock%}
             </b>
           </h1>
-          <p class="lead text-muted">Welcome to my official website,where you can find all of my mechanical projects in one place.</p>
+          <p class="lead text-muted">Welcome to my official website,where you can find all of my
+             {% block subject %} {% endblock subject %} projects in one place.</p>
           <p>
             {% block email_button %}
             {% endblock email_button %}
@@ -110,12 +119,10 @@
   {% block our_client %}
   {% endblock %}
 
-  <br>
-  <br>
-  <footer>
-    </ br>
-    </ br>
-    <div class="footer text-center bg-dark text-white">
+  <footer class="footer">
+    <br>
+    <br>
+    <div class="text-center text-light bg-dark">
       <b>© Site by - shubhansh7777@gmail.com</b>
     </div>
   </footer>
