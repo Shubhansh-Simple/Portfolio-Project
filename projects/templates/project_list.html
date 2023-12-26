@@ -76,24 +76,25 @@
           <!-- Tools used for this project -->
           {% if project_list.tools %}
 
-              <button type="button" class="disabled btn btn-sm btn-primary">{{ project_list.tools.0 }}</button>
+              <button type="button" class="tools py-0 disabled btn btn-sm btn-primary">{{ project_list.tools.0 }}</button>
 
               {% if project_list.tools.1 %}
-                <button type="button" class="disabled btn btn-sm btn-secondary">{{ project_list.tools.1 }}</button>
+                <button type="button" class="tools py-0 disabled btn btn-sm btn-secondary">{{ project_list.tools.1 }}</button>
               {% endif %}
 
               {% if project_list.tools.2 %}
-                <button type="button" class="disabled btn btn-sm btn-success">{{ project_list.tools.2 }}</button>
+                <button type="button" class="tools py-0 disabled btn btn-sm btn-success">{{ project_list.tools.2 }}</button>
               {% endif %}
 
               {% if project_list.tools.3 %}
-                <button type="button" class="disabled btn btn-sm btn-danger">{{ project_list.tools.3 }}</button>
+                <button type="button" class="tools py-0 disabled btn btn-sm btn-danger">{{ project_list.tools.3 }}</button>
               {% endif %}
 
               {% if project_list.tools.4 %}
-                <button type="button" class="disabled btn btn-sm btn-warning">{{ project_list.tools.4 }}</button>
+                <button type="button" class="tools  py-0 disabled btn btn-sm btn-warning">{{ project_list.tools.4 }}</button>
               {% endif %}
               <br>
+
               <br>
 
           <!-- If tools doesn't provide we gave description of the project -->
