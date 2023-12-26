@@ -1,14 +1,15 @@
 {% extends 'base_template.html' %}
 
+<!-- Checking Portfolio owner or ordinary user -->
 {% block title %}
   {% if user_url %}
     {{user_url|title}}
   {% else %}
-    Shubhanshu
+    {{owner_name}}
   {% endif %}
 {% endblock %}
 
-
+<!-- Checking Portfolio owner or ordinary user -->
 {% block home_url %}
   {% if user_url %}
     {% url 'project_list' user_url %}
@@ -17,7 +18,7 @@
   {% endif %}
 {% endblock home_url %}
 
-
+<!-- Checking Portfolio owner or ordinary user -->
 {% block about_me_link %}
   {% if user_url %}
     {% url 'profile_detail' user_url %}
@@ -36,9 +37,15 @@
   <!--Show title,description,3 or 5 images then download link.-->
   <div>
 
+
+    <!-- Project Details -->
     <div class='jumbotron bg-dark'>
+
+      <!-- Show Title Of Project -->
       <h2 class="text-center text-white"><b> {{ project_detail.title|title }}</b></h2>
       <br>
+
+      <!-- Show Description Of Project -->
       <b class='text-warning'>About</b><br>
 
       <div class="table-responsive">
@@ -53,91 +60,94 @@
       </div>
     </div>
 
+    <!-- Project Images List -->
     <div class='text-center container'>
       <ul class="list-group mb-3">
+
 
         <!--Isometric view-->
         <li class=" d-flex justify-content-between lh-condensed">
           <div>
             <h4>
-              <br>
               {% if project_detail.isometric_image_title %}
                 <h3 class="font-weight-bold text-dark">{{ project_detail.isometric_image_title|title }}</h3>
+                <!--<span class="text-muted">{{ project_detail.isometric_image_title }}</span>-->
               {% else %}
-                <span class="text-dark">First Image</span>
+                <h3 class="bg-dark text-light">First Image</h3>
               {% endif %}
             </h4>
             <img class="img-fluid" src="{{ project_detail.isometric_image.url }}" >
           </div>
         </li>
-        <hr>
-        </br></br>
+        <br><br><br>
 
         <!--Front view-->
         <li class=" d-flex justify-content-between lh-condensed">
           <div>
             <h4>
               {% if project_detail.front_image_title %}
-                <h3 class="font-weight-bold text-dark">{{ project_detail.front_image_title }}</h3>
+                <h3 class="font-weight-bold text-dark">{{ project_detail.front_image_title|title }}</h3>
               {% else %}
-                <span class="text-muted">Second Image</span>
+                <h3 class="bg-dark text-light">Second Image</h3>
               {% endif %}
             </h4>
             <img class="img-fluid" src="{{ project_detail.front_image.url }}" >
           </div>
         </li>
-        </br></br>
+        <br><br>
 
-        <!--Side view-->
-        <li class=" d-flex justify-content-between lh-condensed">
-          <div>
-            <h4>
-              {% if project_detail.side_image_title %}
-                  <span class="text-muted">{{ project_detail.side_image_title }}</span>
-              {% else %}
-                <span class="text-muted">Third Image</span>
-              {% endif %}
-            </h4>
-            <img class="img-fluid" src="{{ project_detail.side_image.url }}" >
-          </div>
-        </li>
-        </br></br>
+        {% if project_detail.side_image %}
+          <!--Side view-->
+          <li class=" d-flex justify-content-between lh-condensed">
+            <div>
+              <h4>
+                {% if project_detail.side_image_title %}
+                  <h3 class="font-weight-bold text-dark">{{ project_detail.side_image_title|title }}</h3>
+                {% else %}
+                  <h3 class="bg-dark text-light">Third Image</h3>
+                {% endif %}            </h4>
+              <img class="img-fluid" src="{{ project_detail.side_image.url }}" >
+            </div>
+          </li>
+          <br><br>
+        {% endif %}
 
         {% if project_detail.top_image %}
           <!--Top view-->
           <li class=" d-flex justify-content-between lh-condensed">
             <div>
               <h4>
-              {% if project_detail.top_image_title %}
-                  <span class="text-muted">{{ project_detail.top_image_title }}</span>
-              {% else %}
-                <span class="text-muted">Fourth Image</span>
-              {% endif %}
+                {% if project_detail.top_image_title %}
+                  <h3 class="font-weight-bold text-dark">{{ project_detail.top_image_title|title }}</h3>
+                {% else %}
+                  <h3 class="bg-dark text-light">Fourth Image</h3>
+                {% endif %}
               </h4>
               <img class="img-fluid" src="{{ project_detail.top_image.url }}" >
             </div>
           </li>
-          </br></br>
+          <br><br>
         {% endif %}
-        
+
         {% if project_detail.bottom_image %}
           <!--Bottom view-->
           <li class=" d-flex justify-content-between lh-condensed">
             <div>
               <h4>
-              {% if project_detail.bottom_image_title %}
-                  <span class="text-muted">{{ project_detail.bottom_image_title }}</span>
-              {% else %}
-                <span class="text-muted">Fifth Image</span>
-              {% endif %}
+                {% if project_detail.bottom_image_title %}
+                  <h3 class="font-weight-bold text-dark">{{ project_detail.bottom_image_title|title }}</h3>
+                {% else %}
+                  <h3 class="bg-dark text-light">Fifth Image</h3>
+                {% endif %}
               </h4>
               <img class="img-fluid" src="{{ project_detail.bottom_image.url }}" >
             </div>
           </li>
-          </br>
+          <br><br>
         {% endif %}
 
-        
+
+        <!-- Download and Back-To-Top button -->
         <li class=" d-flex justify-content-between text-center">
 
           <!--If project file exist -->
@@ -147,25 +157,25 @@
               <strong class='text-white'>Download</strong>
             </a>
 
-          <!--If project file link exist not project file -->
+          <!--If project file link exist but not project file -->
           {% elif project_detail.project_file_link  %}
 
-          <a class='btn btn-success' href='{{ project_detail.project_file_link }}'>
+            <a class='btn btn-success' href='{{ project_detail.project_file_link }}'>
               <strong class='text-white'>Go To Source Code</strong>
             </a>
 
-          <!--If project file link exist not project file -->
+          <!--If project file link as well project file both not exist-->
+          <!-- Remove button -->
 
           {% endif %}
-        
+
           <a class='btn btn-primary' href='#'>
             <strong class='text-white'>Back To Top</strong>
           </a>
-
         </li>
-        </br>
       </ul>
+      </br>
     </div>
-  </div> 
+  </div>
 {% endblock body_block %}
 
