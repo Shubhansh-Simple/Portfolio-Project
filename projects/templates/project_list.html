@@ -75,21 +75,27 @@
 
           <!-- Tools used for this project -->
           {% if project_list.tools %}
-              <br>
+
               <button type="button" class="disabled btn btn-sm btn-primary">{{ project_list.tools.0 }}</button>
 
               {% if project_list.tools.1 %}
                 <button type="button" class="disabled btn btn-sm btn-secondary">{{ project_list.tools.1 }}</button>
-              {% elif project_list.tools.2 %}
+              {% endif %}
+
+              {% if project_list.tools.2 %}
                 <button type="button" class="disabled btn btn-sm btn-success">{{ project_list.tools.2 }}</button>
-              {% elif project_list.tools.3 %}
+              {% endif %}
+
+              {% if project_list.tools.3 %}
                 <button type="button" class="disabled btn btn-sm btn-danger">{{ project_list.tools.3 }}</button>
-              {% elif project_list.tools.4 %}
+              {% endif %}
+
+              {% if project_list.tools.4 %}
                 <button type="button" class="disabled btn btn-sm btn-warning">{{ project_list.tools.4 }}</button>
               {% endif %}
               <br>
               <br>
-              <br>
+
           <!-- If tools doesn't provide we gave description of the project -->
           {% else %}
               <p>
@@ -97,13 +103,14 @@
               </p>
           {% endif %}
           <p>
-            <!-- Checking Portfolio owner or ordinary user -->
+            <!-- Ordinary user -->
             {% if user_url %}
               <a class="btn btn-primary"
                  href="{% url 'project_detail' user_url project_list.id %}"
                  role="button">View Details &raquo;</a>
+            <!-- Owner -->
             {% else %}
-              <a class="btn btn-dark"
+              <a class="btn btn-dark btn-lg"
                  href="{% url 'mine_project_detail' project_list.id %}"
                  role="button">View Details &raquo;</a>
             {% endif %}
