@@ -8,7 +8,7 @@
 # Responsive Portfolio Application
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
-    <img alt="Responsive" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/ResponsiveView.png" height="400" /> 
+    <img alt="Responsive" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/ResponsiveView.png" height="300" /> 
   </a>
 </p>
 
@@ -17,7 +17,7 @@
 # Profile View
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
-    <img alt="About" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/AboutView.png" height="400" /> 
+    <img alt="About" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/AboutView.png" height="300" /> 
   </a>
 </p>
 
@@ -26,7 +26,7 @@
 # Your projects as your portfolio
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
-    <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/HomeView.png" height="400" /> 
+    <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/HomeView.png" height="300" /> 
   </a>
 </p>
 
@@ -35,7 +35,7 @@
 # Upload page makes easy to upload and maintain your projects
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
-    <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/UploadView.png" height="400" /> 
+    <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/UploadView.png" height="300" /> 
   </a>
 </p>
 
