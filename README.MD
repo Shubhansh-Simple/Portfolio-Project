@@ -8,7 +8,7 @@
 # Responsive Portfolio Application
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
-    <img alt="Responsive" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/ResponsiveView.png" height="600" /> 
+    <img alt="Responsive" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/ResponsiveView.png" height="400" /> 
   </a>
 </p>
 
@@ -17,7 +17,7 @@
 # Profile View
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
-    <img alt="About" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/AboutView.png" height="600" /> 
+    <img alt="About" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/AboutView.png" height="400" /> 
   </a>
 </p>
 
@@ -26,7 +26,7 @@
 # Your projects as your portfolio
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
-    <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/HomeView.png" height="600" /> 
+    <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/HomeView.png" height="400" /> 
   </a>
 </p>
 
@@ -35,7 +35,7 @@
 # Upload page makes easy to upload and maintain your projects
 <p align="center">
   <a href="https://shub.pythonanywhere.com/profile">
-    <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/UploadView.png" height="600" /> 
+    <img alt="HomePage" src="https://raw.githubusercontent.com/Shubhansh-Simple/Portfolio-Project/main/Screenshots/UploadView.png" height="400" /> 
   </a>
 </p>
 
@@ -53,6 +53,9 @@
 <br>
 <b>.)</b><i>Tools and skills</i> : <b>Python</b>, <b>Django</b>, <b>Mysql</b>, <b>Pythonanywhere</b>, <b>Bootstrap</b>, <b>Javascript</b>, <b>Html</b>,<b>Css</b>
 
-<br>
-<br>
 
+### Authors
+* [Shubhansh-simple](https://github.com/Shubhansh-Simple)
+* [My Portfolio](https://shub.pythonanywhere.com/profile/)
+### License
+This project is available for use under the MIT License.
