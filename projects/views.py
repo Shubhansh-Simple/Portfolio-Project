@@ -25,7 +25,7 @@ class MineProjectListView( ListView ):
         self.USER_EMAIL     = obj.email
         
         if obj:
-            ProjectList = Projects.objects.filter( creator=obj.id )
+            ProjectList = Projects.objects.filter( creator=obj.id ).order_by('position')
 
             # Preparing the tools of each project
             for eachProject in ProjectList:
@@ -102,7 +102,7 @@ class ProjectListView( ListView ):
         self.USER_EDUCATION = obj.education
 
         if obj:
-            return Projects.objects.filter( creator=obj.id )
+            return Projects.objects.filter( creator=obj.id ).order_by('position')
         raise Http404('User not exist')
 
     def get_context_data( self,**kwargs ):

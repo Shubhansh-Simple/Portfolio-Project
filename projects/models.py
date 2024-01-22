@@ -3,12 +3,22 @@ from django.conf         import  settings
 
 
 class Projects( models.Model ):
+    '''Project database table model'''
+
     class Meta:
         verbose_name        = 'My-Project'
         verbose_name_plural = 'My-Projects'
 
+    # Each user can have 9 projects max        
+    POSITION_CHOICES = [ (str(x),f'Position - {x}') for x in range(1,10) ]
+
     creator         = models.ForeignKey( settings.AUTH_USER_MODEL,on_delete=models.CASCADE )
     title           = models.CharField( max_length=100 ,help_text='Title of the project')
+    position        = models.CharField( max_length=1,
+                                        choices=POSITION_CHOICES,
+                                        verbose_name='Project position',
+                                        help_text='Project position in Home page i.e. (1-9)' )
+
     description     = models.CharField( max_length=700 ,help_text='Description of that project')
     
     # Tools used for creating the project
@@ -26,18 +36,16 @@ class Projects( models.Model ):
     side_image         = models.ImageField( upload_to='images/', help_text='(OPTIONAL) Upload side view of the model.',null=True, blank=True )
     side_image_title   = models.CharField( max_length=50, help_text='(OPTIONAL) Title of projects images', null=True, blank=True )
 
-    top_image          = models.ImageField( upload_to='images/', help_text='(OPTIONAL) Upload top view of the model.', null=True,blank=True )
-    top_image_title    = models.CharField( max_length=50, help_text='(OPTIONAL) Title of projects images', null=True, blank=True )
+    def save( self, *args, **kwargs ):
 
-    bottom_image       = models.ImageField( upload_to='images/', help_text='(OPTIONAL) Upload bottom view of the model.', null=True,blank=True )
-    bottom_image_title = models.CharField( max_length=50, help_text='(OPTIONAL) Title of projects images', null=True, blank=True )
+        # Default position for new project
+        if not self.id:
+            self.position = '1'
+        super().save( *args, **kwargs )
 
-    project_file          = models.FileField( upload_to ='project_file/', help_text='(OPTIONAL) Upload Your Project file.', null=True, blank=True )
-    project_file_link     = models.URLField( max_length=100, null=True, blank=True, help_text='(OPTIONAL) For eg. github link' )
 
     def __str__( self ):
-        return str( self.title ).capitalize()
-
+        return self.position + ' - ' + ( self.title ).capitalize()
 
 
 

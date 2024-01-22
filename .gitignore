@@ -2,8 +2,9 @@
 *.pot
 *.pyc
 __pycache__
+
+# No database
 db.sqlite3
-media
 
 # Vim #
 *.swp 
