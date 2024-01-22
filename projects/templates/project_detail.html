@@ -47,17 +47,13 @@
 
       <!-- Show Description Of Project -->
       <b class='text-warning'>About</b><br>
-
-      <div class="table-responsive">
-        <table class="table table-dark table-borderless table-striped">
-          <ul class="list-unstyled">
-            <ul class="text-light">
-              {% for each_line in description_split %}
-                <li>{{ each_line|safe }}</li>
-              {% endfor %}
-            </ul>
-        </table>
-      </div>
+      <ul class="list-unstyled">
+        <ul class="text-light">
+          {% for each_line in description_split %}
+            <li>{{ each_line|safe }}</li>
+          {% endfor %}
+        </ul>
+      </ul>
     </div>
     
     <!-- Project Images List -->
