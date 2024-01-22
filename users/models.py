@@ -13,6 +13,8 @@ def validate_phone( value ):
 
 
 class CustomUser( AbstractUser ):
+    '''Override existing user table created by django'''
+
     class Meta:
         db_table            = 'users_customuser'
         verbose_name        = 'Account'

@@ -16,8 +16,8 @@ media
 .env
 
 # FILES #
-/media
-/static
+media/
+static/
 
 Pipfile
 Pipfile.lock

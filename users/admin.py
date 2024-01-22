@@ -5,7 +5,7 @@ from .forms                     import CustomUserChangeForm , CustomUserCreation
 from .models                    import CustomUser
 
 class CustomUserAdmin( UserAdmin ):
-    '''Entire Admin Site Based.'''
+    '''Override Admin site form for CustomUser Model'''
 
     add_form      = CustomUserCreationForm
     form          = CustomUserChangeForm
