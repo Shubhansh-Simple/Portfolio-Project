@@ -36,7 +36,9 @@ class ProjectsAdmin( admin.ModelAdmin ):
     def save_model( self, request, obj, form, change):
         '''On save creator of project will login user'''
 
-        obj.creator = request.user 
+        if not request.user.is_superuser:
+            obj.creator = request.user 
+
         super().save_model( request, obj, form, change )
 
 
