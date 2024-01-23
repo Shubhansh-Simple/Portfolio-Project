@@ -13,7 +13,7 @@ class MineProfileView( DetailView ):
    
     
     def get_object( self,queryset=None ):
-        '''Extract user from database from url username.'''
+        '''Extract special_user from the database'''
 
         user_name    = self.special_user
         self.CREATOR = get_object_or_404(CustomUser, username=user_name)
